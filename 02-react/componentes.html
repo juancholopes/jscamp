@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React</title>
+  </head>
+
+  <body>
+    <!-- Aquí React renderizará nuestra aplicación -->
+    <div id="root"></div>
+
+    <!-- Cargar React y ReactDOM desde CDN -->
+    <script type="module">
+      import React from 'https://esm.sh/react?dev'
+      import ReactDOM from 'https://esm.sh/react-dom/client?dev'
+
+
+      window.React = React
+      window.ReactDOM = ReactDOM
+
+    </script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+      function Saludar({name, color}){
+        return <h1 style={{color: color}}>Hola {name}</h1>
+      }
+
+      const personas = [
+        {
+          name: "Juan",
+          color: "#09f"
+        }, 
+        {
+
+          name: "Pedro",
+          color: "#f09"
+
+        }, 
+        {
+          name: "Luis", 
+          color: "#0f9"
+        }
+      ]
+
+      function App(){
+        return (
+          <div>
+            {
+              personas.map((persona) => {
+                return <Saludar name={persona.name} color={persona.color} />
+              })
+            }
+          </div>
+        )
+      }
+
+      // Renderizar en el DOM
+      const rootEl = document.querySelector('#root')
+      const root = ReactDOM.createRoot(rootEl)
+      root.render(<App />)
+    </script>
+  </body>
+</html>

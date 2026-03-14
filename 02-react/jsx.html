@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React</title>
+  </head>
+
+  <body>
+    <!-- Aquí React renderizará nuestra aplicación -->
+    <div id="root"></div>
+
+    <!-- Cargar React y ReactDOM desde CDN -->
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="module">
+      import React from 'https://esm.sh/react?dev'
+      import ReactDOM from 'https://esm.sh/react-dom/client?dev'
+
+      window.React = React
+      window.ReactDOM = ReactDOM
+
+    </script>
+
+    <script type="text/babel">
+
+      const titulo = <h1 style={{color: '#09f'}}>Hola desde jsx</h1>
+      const titulo2 = <h2 style={{color: '#f09'}}>¡Bienvenido a React!</h2>
+
+      // Renderizar en el DOM
+      const rootEl = document.querySelector('#root')
+      const root = ReactDOM.createRoot(rootEl)
+      root.render(React.createElement('div', {style: {display: 'flex', flexDirection: 'row', gap: '1rem'}}, titulo, titulo2))
+    </script>
+  </body>
+</html>

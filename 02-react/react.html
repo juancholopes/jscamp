@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React</title>
+  </head>
+
+  <body>
+    <!-- Aquí React renderizará nuestra aplicación -->
+    <div id="root"></div>
+
+    <!-- Cargar React y ReactDOM desde CDN -->
+    <script type="module">
+      import React from 'https://esm.sh/react?dev'
+      import ReactDOM from 'https://esm.sh/react-dom/client?dev'
+
+      // Crear un elemento h1 con React.createElement
+      const titulo = React.createElement(
+        'h1', // Tipo de elemento
+        { style: { color: '#09f' }, onClick: () => alert('¡Hola!') }, // Props (atributos)
+        '¡Hola React!' // Contenido (children)
+      )
+
+      const titulo2 = React.createElement(
+        'h2',
+        { style: { color: '#f09' }, onClick: () => alert('¡Bienvenido a React!') },
+        '¡Bienvenido a React!'
+      )
+
+      // Renderizar en el DOM
+      const rootEl = document.querySelector('#root')
+      const root = ReactDOM.createRoot(rootEl)
+      root.render(React.createElement('div', {style: {display: 'flex', flexDirection: 'row', gap: '1rem'}}, titulo, titulo2))
+    </script>
+  </body>
+</html>
